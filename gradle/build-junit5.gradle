@@ -1,0 +1,41 @@
+dependencies {
+    testCompile("org.mockito:mockito-core:${mockitoVersion}")
+    testCompile("org.powermock:powermock-api-mockito2:${powermockMockitoVersion}")
+    testCompile("org.powermock:powermock-module-junit4:${powermockMockitoVersion}")
+    testCompileOnly(
+            'junit:junit:4.12'
+    )
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    )
+    testRuntimeOnly(
+            "org.junit.jupiter:junit-jupiter-engine:${junitVersion}",
+            "org.junit.vintage:junit-vintage-engine:${junitVersion}"
+    )
+    
+    compile group: 'org.junit.platform', name: 'junit-platform-commons', version: '1.7.0-M1'
+    testCompile group: 'org.junit.platform', name: 'junit-platform-engine', version: '1.7.0-M1'
+}
+
+
+test {
+    useJUnitPlatform {
+        excludeTags "integration"
+    }
+
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+    }
+}
+
+task integrationTest(type: Test) {
+    useJUnitPlatform {
+        includeTags "integration"
+    }
+
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+    }
+}
