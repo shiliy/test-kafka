@@ -1,5 +1,5 @@
 {
-  "name": "spring-boot-kafka-api",
+  "name": "test-kafka",
   "version": "1.0.0",
   "description": "Spring Boot application",
   "main": "index.js",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.ibm.com:seansund/template-spring-boot.git"
+    "url": "git@github.com:shiliy/test-kafka.git"
   },
   "author": "",
   "license": "ISC",

@@ -152,24 +152,6 @@ spec:
                     ./gradlew testClasses --no-daemon
                 '''
             }
-            stage('Sonar scan') {
-                sh '''#!/bin/bash
-
-                if [[ -z "${SONARQUBE_URL}" ]]; then
-                  echo "Skipping Sonar Qube step as Sonar Qube not installed or configured"
-                  exit 0
-                fi
-
-                if $(./gradlew tasks --all | grep -Eq "^sonarqube") ; then
-                    echo "SonarQube task found"
-                else
-                    echo "Skipping SonarQube step, no task defined"
-                    exit 0
-                fi
-
-                ./gradlew -Dsonar.login=${SONARQUBE_USER} -Dsonar.password=${SONARQUBE_PASSWORD} -Dsonar.host.url=${SONARQUBE_URL} sonarqube
-                '''
-            }
         }
         container(name: 'node', shell: '/bin/bash') {
             stage('Tag release') {
