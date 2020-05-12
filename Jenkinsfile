@@ -153,6 +153,7 @@ spec:
                 '''
             }
         }
+        /*
         container(name: 'node', shell: '/bin/bash') {
             stage('Tag release') {
                 sh '''#!/bin/bash
@@ -187,7 +188,7 @@ spec:
                     cat ./env-config
                 '''
             }
-        }
+        }*/
         container(name: 'ibmcloud', shell: '/bin/bash') {
             stage('Build image') {
                 sh '''#!/bin/bash
