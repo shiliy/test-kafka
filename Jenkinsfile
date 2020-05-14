@@ -177,7 +177,7 @@ spec:
                         PRE_RELEASE="--preRelease=${BRANCH}"
                     fi
 
-					echo "IMAGE_VERSION=${version}" > ./env-config
+					echo "IMAGE_VERSION="$TIMESTAMP-$(git rev-parse --short HEAD)$BRANCH" > ./env-config
 					
                     echo "IMAGE_NAME=$(basename -s .git `git config --get remote.origin.url` | tr '[:upper:]' '[:lower:]' | sed 's/_/-/g')" >> ./env-config
 
