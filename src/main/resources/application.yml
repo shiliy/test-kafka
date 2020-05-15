@@ -10,7 +10,7 @@ greetingservice:
 
 kafka:
   commonProperties:
-    bootstrapServers: ${BOOTSTRAP_SERVERS}
+    bootstrapServers: ${BOOTSTRAP_SERVERS:localhost:9092}
     securityProtocol: SASL_SSL
     saslMechanism: PLAIN
     username: ${USERNAME:token}
